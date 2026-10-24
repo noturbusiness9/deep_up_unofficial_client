@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cube Remote</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="panel">
+    <header>
+      <div class="brand">
+        <svg viewBox="0 0 24 24" class="logo"><path d="M12 2.5 20.2 7.25v9.5L12 21.5 3.8 16.75v-9.5zM12 12l8.2-4.75M12 12v9.5M12 12 3.8 7.25" /></svg>
+        <span id="devName">Cube Remote</span>
+      </div>
+      <div class="battery" id="battery" hidden>
+        <span class="batt"><span class="batt-fill" id="battFill"></span></span>
+        <span id="battText">–</span>
+        <span id="battCharging" class="bolt" hidden>⚡︎</span>
+      </div>
+    </header>
+
+    <section class="conn" id="connBox">
+      <span class="dot" id="connDot"></span>
+      <span id="connText">Не подключено</span>
+      <button class="ghost" id="connBtn">Подключить</button>
+    </section>
+
+    <section class="now" id="nowBox" hidden>
+      <img id="nowIcon" alt="" />
+      <div class="now-body">
+        <div class="now-title"><span id="nowState"></span> · <span id="nowName"></span></div>
+        <div class="bar"><div class="bar-fill" id="nowBar"></div></div>
+        <div class="now-sub" id="nowSub"></div>
+      </div>
+    </section>
+
+    <section class="learn" id="learnBox" hidden>
+      <div>На кубике играет режим <b>#<span id="learnId"></span></b>, которого нет в списке. Сохранить его?</div>
+      <div class="learn-row">
+        <input id="learnName" placeholder="Название, как в приложении" maxlength="40" />
+        <button class="ghost" id="learnSave">Сохранить</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Режим</h2>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="row">
+      <div class="field">
+        <h2>Подъём в</h2>
+        <input type="time" id="wake" />
+      </div>
+      <div class="field grow">
+        <h2>Длительность</h2>
+        <div class="duration" id="duration">–</div>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="field grow">
+        <h2>Мощность</h2>
+        <div class="seg" id="power">
+          <button data-v="min">Мин</button><button data-v="medium">Сред</button><button data-v="max">Макс</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="error" id="error" hidden></div>
+
+    <footer>
+      <button class="primary" id="startBtn">Запустить</button>
+      <button class="ghost" id="pauseBtn" hidden>Пауза</button>
+      <button class="ghost danger" id="stopBtn" hidden>Стоп</button>
+    </footer>
+    <div class="raw" id="raw"></div>
+  </div>
+  <script src="programs.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
